@@ -1,9 +1,0 @@
-{
-    "/travel/*": {
-      "target": "http://localhost:9000/travel/",
-      "secure": false,
-      "changeOrigin": true,
-      "logLevel": "debug",
-      "pathRewrite": {"^/travel" : ""}
-    }
-  }
