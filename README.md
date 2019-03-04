@@ -21,5 +21,3 @@ Clone this repo and start (on windows systems use the gradlew.bat file):
 Clone this repo and start (on windows systems use the gradlew.bat file):
 
 `./ng serve`
-
-	# Modules are not bundled in Angular code.
