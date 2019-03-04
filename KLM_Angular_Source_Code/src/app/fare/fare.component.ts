@@ -38,29 +38,27 @@ export class FareComponent implements OnInit {
   }
 
   getOriginFilteredAirportList($event) {
-    if (this.origin.length > 2) {
+    this.searchObjects=[];
+    if (this.origin.length > 0) {
       this.searchObjects = this.searchFromArray(this.airports, this.origin);
       this.searchObjects=this.airports;
-    }else{
-      this.searchObjects=[];
-    }
-  }  
+     }
+  } 
 
   
   getDestinationFilteredAirportList($event) {
-    if (this.destination.length > 2) {
+    this.searchDObjects=[];
+    if (this.destination.length > 0) {
       this.searchDObjects = this.searchFromArray(this.airports, this.destination);
       this.searchDObjects=this.airports;
-    }else{
-      this.searchDObjects=[];
     }
   }
 
- searchFromArray(arr, regex) {
-    let matches = [], i;
+ searchFromArray(arr, searchString:String) {
+    let matches = [], i=0;
     try{
       for (i = 0; i < arr.length; i++) {
-        if (arr[i].contains(regex)) {
+        if (arr[i].contains(searchString)) {
           matches.push(arr[i]);
         }
       }
