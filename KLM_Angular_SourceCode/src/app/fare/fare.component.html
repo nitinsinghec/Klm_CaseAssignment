@@ -1,0 +1,56 @@
+<h4 style="margin-left: 20px;">Flight</h4>
+<hr>
+<div class="alert alert-danger" *ngIf="displayErrorMsg">{{errorMsg}}</div>
+<div class="container-fluid">
+<form>
+    <div class="form-group">
+            <label for="origin">Origin</label>
+            <input type="text" (keyup)="getOriginFilteredAirportList($event)" id="origin" [(ngModel)]="origin"
+             list="dynamicOriginAirportList" class="form-control" name="origin" autocomplete="off"/>
+            <datalist id="dynamicOriginAirportList">
+                <option *ngFor="let item of searchObjects" [value]="item.code">{{item.name}}</option>
+            </datalist>
+     </div>
+    <div class="form-group">
+            <label for="destination">Destination</label>
+            <input type="text" (keyup)="getDestinationFilteredAirportList($event)" id="destination" [(ngModel)]="destination"
+             list="dynamicDestinationAirportList" class="form-control" name="destination" autocomplete="off"/>
+            <datalist id="dynamicDestinationAirportList" >
+                <option *ngFor="let item of searchDObjects" [value]="item.code">{{item.name}}</option>
+            </datalist>
+    </div>
+    <div class="form-group">
+        <label for="currency">Currency</label>
+        <select class="form-control" id="selectedCurrency"  [(ngModel)]="selectedCurrency" name="selectedCurrency">
+            <option value="EUR" selected="true">EURO</option>
+            <option value="USD">USD</option>
+        </select>
+    </div>
+    <div class="form-group text-center" >
+        <button type="submit" (click)="search()" class="btn btn-info">Search Flights</button> 
+    </div>
+</form>
+</div>
+
+<div *ngIf="fare">
+<h4 style="margin-left: 20px;" *ngIf="fare">Available Flights</h4>
+<hr>
+<div class="container-fluid">
+<table class="table">
+    <thead>
+        <tr class="table-primary">
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Fare</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{fare.origin}}</td>
+            <td>{{fare.destination}}</td>
+            <td>{{fare.amount | currency:fare.currency }}</td>
+        </tr>
+        </tbody>
+</table>
+</div>
+</div>

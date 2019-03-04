@@ -1,0 +1,34 @@
+<h4 style="margin-left: 20px;">Airport</h4>
+<hr>
+<div class="alert alert-danger" *ngIf="displayErrorMsg">{{errorMsg}}</div>
+<div class="container-fluid">
+    <table datatable class="row-border hover" *ngIf="airportsInfo">
+      <thead>
+        <tr>
+          <th>SNo</th>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Description</th>      
+          <th>Latitude</th>      
+          <th>Longitude</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="airportsInfo?.length != 0">
+        <tr *ngFor="let airport of airportsInfo;index as rowIndex">
+            <td>{{rowIndex+1}}</td>
+            <td>{{airport.name}}</td>
+            <td>{{airport.code}}</td>
+            <td>{{airport.description}}</td>
+            <td *ngIf="airport.coordinates != null">{{airport.coordinates.latitude}}</td>
+            <td *ngIf="airport.coordinates != null">{{airport.coordinates.longitude}}</td>
+            <td *ngIf="airport.coordinates == null">-NA-</td>
+            <td *ngIf="airport.coordinates == null">-NA-</td>        
+          </tr>
+      </tbody>
+      <tbody *ngIf="airportsInfo?.length == 0">
+        <tr>
+          <td colspan="5" class="no-data-available">No data!</td>
+        </tr>
+      <tbody>
+    </table>
+</div>

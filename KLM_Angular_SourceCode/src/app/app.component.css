@@ -1,0 +1,28 @@
+
+#progressbar {
+  position: fixed;
+  top: 40%;
+  left: 45%;
+}
+
+#progressbarContainer {
+  position: fixed;
+  height:100%;
+  width: 100%;
+  background:red;
+  z-index: 10;
+  float: left;
+  top: 0px;
+  left: 0px;
+}
+
+#progressbarContainer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #e8eef0;
+  float: left;
+  top: 0px;
+  left: 0px;
+  opacity: 0.4;
+}
